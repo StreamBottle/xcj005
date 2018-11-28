@@ -1,0 +1,168 @@
+<div class="exam-body">
+  <!-- <div class='exam-title'>{{titleArray[this.appService.progressData['describeFlag']]}}</div> -->
+  <!--<button *ngIf='23===this.appService.progressData.describeFlag' (click)='saveSkillTest()' class="preservation">保存</button>
+  <button *ngIf='23===this.appService.progressData.describeFlag' (click)='submitSkillTest()' class="submit">提交</button>-->
+  <!-- 知识 -->
+  <div class='zhishi ' *ngIf='this.appService.progressData.describeFlag===29'>
+    <pad-question [currentChapter]="'exam'" [childCatalog]="''" (repairFault)="isWeixiu($event)" (isSub)="isSub($event)"></pad-question>
+  </div>
+  <!-- 技能 -->
+  <!-- 模拟训练四 -->
+  <div class='moni4' *ngIf='this.appService.progressData.describeFlag>=30
+  &&this.appService.progressData.describeFlag<=35'>
+    <app-navchild [arr]="[30,31,32,33,34,35]"></app-navchild>
+    <!-- 模拟训练一 -->
+    <!-- 工作单 -->
+    <div class="GongDan" *ngIf="this.appService.progressData.describeFlag===30">
+      <table border="1" class="tab">
+        <caption>维修工单</caption>
+        <tr>
+          <th>进厂日期</th>
+          <td>2018.6.18</td>
+          <th>维修顾问</th>
+          <td>赵耀光</td>
+          <th>车型</th>
+          <td>北汽 EV160 </td>
+        </tr>
+        <tr>
+          <th>进厂时间</th>
+          <td>9:10</td>
+          <th>托修人</th>
+          <td>韩天举</td>
+          <th>行驶里程</th>
+          <td>44352km</td>
+        </tr>
+        <tr>
+          <th>出厂时间</th>
+          <td>13:15</td>
+          <th>VIN</th>
+          <td colspan="3">XXXSCB3F5BD003425</td>
+        </tr>
+        <tr style="height: .5rem">
+          <th>客户描述</th>
+          <td colspan="5" style="text-align: left;padding: 0 .1rem">仪表中有故障灯点亮</td>
+        </tr>
+        <tr style="height: .5rem">
+          <th>维修任务</th>
+          <td colspan="5" style="text-align: left;padding: 0.1rem">检修驱动电机故障灯点亮故障</td>
+        </tr>
+      </table>
+    </div>
+    <!-- 故障验证 -->
+    <div class="yanzheng" style="overflow: hidden;" *ngIf="this.appService.progressData.describeFlag===31">
+      <!-- <div class="fault">
+              <img src="./assets/images/skill/bg.png" alt="" srcset="">
+          </div> -->
+      <div id="videos" style="height: 100%;overflow: hidden;position:relative;top:-250px">
+        <video id="jin" src="./assets/video/qianjin.mp4" poster="./assets/images/skill/poster.jpg" type="video/mp4" loop width="100%">
+        </video>
+        <video id="tui" src="./assets/video/houtui.mp4" poster="./assets/images/skill/poster.jpg" type="video/mp4" loop width="100%">
+        </video>
+      </div>
+      <div class="fault">
+        <img src="./assets/images/skill/bg1.png" alt="" srcset="">
+      </div>
+    </div>
+    <!-- 故障分析 -->
+    <div class="fenxi" *ngIf="this.appService.progressData.describeFlag===32">
+      <fault-diagnosis [chapter]='"skill04"' [rightAnswer]='[faultDiagnosisAnswerPic,appService.progressData.describeFlag]' (showRightAnswer)='faultDiagnosisShowAnswer($event)'
+        [operator]='faultDiagnosis.skill04FaultDiagnosis["operator"]' [answer]='faultDiagnosis.skill04FaultDiagnosis["answer"]'></fault-diagnosis>
+    </div>
+    <!-- 故障诊断 -->
+    <div class="zhenduan" *ngIf="this.appService.progressData.describeFlag===33">
+      <div class="tishi">
+        请拔下该插头
+      </div>
+    </div>
+    <!-- 故障维修 -->
+    <div class="weixiu" *ngIf="this.appService.progressData.describeFlag===34">
+      <pad-question [currentChapter]="'skill'" [childCatalog]="'skill04'" (repairFault)="isWeixiu($event)" (isSub)="isSub($event)"></pad-question>
+      <!-- <p class="p1"></p> -->
+    </div>
+    <!-- 故障交车 -->
+    <div class="jiaoche" style="overflow: hidden;" *ngIf="this.appService.progressData.describeFlag===35">
+      <div id="videos" style="height: 100%;overflow: hidden;position:relative;top:-250px">
+        <video id="jin" src="./assets/video/qianjin.mp4" poster="./assets/images/skill/poster.jpg" type="video/mp4" loop width="100%">
+        </video>
+        <video id="tui" src="./assets/video/houtui.mp4" poster="./assets/images/skill/poster.jpg" type="video/mp4" loop width="100%">
+        </video>
+      </div>
+      <div class="fault">
+        <img src="./assets/images/skill/bg1.png" alt="" srcset="">
+      </div>
+      <div class="wenduji">
+        <img src="./assets/images/skill/wenduji.png" alt="" srcset="">
+      </div>
+    </div>
+  </div>
+
+  <div class='bgpic-circuit' *ngIf='33===this.appService.progressData.describeFlag'></div>
+  <div class="skill-circuit3" *ngIf='33===this.appService.progressData.describeFlag'>
+    <!-- 电路部分 -->
+    <div class='oscilloscope-circuit'>
+      <!-- 蓄电池热区 -->
+      <a *ngIf='this.multimeterService.Mdata.multimeterScreenUnit==="V"' class="batt-positive hot" title="蓄电池正极" wybredPosition="A"
+        wybblackPosition="A" rqPosition="2013" h-left="388" h-top="452" id='2'></a>
+      <a *ngIf='this.multimeterService.Mdata.multimeterScreenUnit==="V"||(skillService.V_Pin_Install=="0"&&this.multimeterService.Mdata.multimeterScreenUnit==="Ω")'
+        class="GND hot" id="1" title="GND" wybredPosition="GND" wybblackPosition="GND" rqPosition="2013" h-left="388" h-top="506"></a>
+    </div>
+    <!-- V插头插上 -->
+    <div class="V-install" (click)='pullOutUnit($event.target);'>
+      <a *ngIf='skillService.V_Pin_Install==="1"&&(this.multimeterService.Mdata.multimeterScreenUnit==="V")' class="V95 hot" title="V95"
+        id="3" wybredPosition="V95" wybblackPosition="V95" rqPosition="2013" h-left="388" h-top="208"></a>
+      <a *ngIf='skillService.V_Pin_Install==="1"&&(this.multimeterService.Mdata.multimeterScreenUnit==="V")' class="V80 hot" title="V80"
+        id="4" wybredPosition="V80" wybblackPosition="V80" rqPosition="2013" h-left="468" h-top="208"></a>
+      <a *ngIf='skillService.V_Pin_Install==="1"&&(this.multimeterService.Mdata.multimeterScreenUnit==="V")' class="V1 hot" title="V1"
+        id="5" wybredPosition="V1" wybblackPosition="V1" rqPosition="2013" h-left="532" h-top="208"></a>
+      <a *ngIf='skillService.V_Pin_Install==="1"&&(this.multimeterService.Mdata.multimeterScreenUnit==="V")' class="V2 hot" title="V2"
+        id="6" wybredPosition="V2" wybblackPosition="V2" rqPosition="2013" h-left="746" h-top="208"></a>
+    </div>
+    <!-- V插头拔下 -->
+    <div class="V-uninstall" (click)='pullInUnit($event.target);'>
+      <a *ngIf='skillService.V_Pin_Install==="0"&&(this.multimeterService.Mdata.multimeterScreenUnit==="V")' class="V95 hot" title="V95"
+        id="3" wybredPosition="V95" wybblackPosition="V95" rqPosition="2013" h-left="388" h-top="236"></a>
+      <a *ngIf='(skillService.V_Pin_Install=="0"&&this.multimeterService.Mdata.multimeterScreenUnit==="V")||(skillService.V_Pin_Install=="0"&&this.multimeterService.Mdata.multimeterScreenUnit==="Ω")'
+        class="V80 hot" title="V80" id="4" wybredPosition="V80" wybblackPosition="V80" rqPosition="2013" h-left="468" h-top="236"></a>
+      <a *ngIf='(skillService.V_Pin_Install=="0"&&this.multimeterService.Mdata.multimeterScreenUnit==="V")||(skillService.V_Pin_Install=="0"&&this.multimeterService.Mdata.multimeterScreenUnit==="Ω")'
+        class="V1 hot" title="V1" id="5" wybredPosition="V1" wybblackPosition="V1" rqPosition="2013" h-left="532" h-top="236"></a>
+      <a *ngIf='(skillService.V_Pin_Install=="0"&&this.multimeterService.Mdata.multimeterScreenUnit==="V")||(skillService.V_Pin_Install=="0"&&this.multimeterService.Mdata.multimeterScreenUnit==="Ω")'
+        class="V2 hot" title="V2" id="6" wybredPosition="V2" wybblackPosition="V2" rqPosition="2013" h-left="746" h-top="236"></a>
+    </div>
+    <!-- T6插头插上 -->
+    <div class="T6-install" (click)='pullOutUnit($event.target);'>
+      <!-- T6-install插头 -->
+      <!-- T6插头热区 -->
+      <a *ngIf='skillService.T_Pin_Install==="1"&&(this.multimeterService.Mdata.multimeterScreenUnit==="V")' class="T6-Pin-1 hot"
+        title="T1" id="7" wybredPosition="T1" wybblackPosition="T1" rqPosition="2013" h-left="532" h-top="456"></a>
+      <a *ngIf='skillService.T_Pin_Install==="1"&&(this.multimeterService.Mdata.multimeterScreenUnit==="V")' class="T6-Pin-2 hot"
+        title="T2" id="8" wybredPosition="T2" wybblackPosition="T2" rqPosition="2013" h-left="746" h-top="456"></a>
+    </div>
+    <!-- T6插头拔下 -->
+    <div class="T6-uninstall" (click)='pullInUnit($event.target);'>
+      <!-- T6-uninstall插头 -->
+      <!-- T6插头热区 -->
+      <a *ngIf='(skillService.T_Pin_Install==="0"&&this.multimeterService.Mdata.multimeterScreenUnit==="V")||(skillService.V_Pin_Install==="0"&&skillService.T_Pin_Install==="0"&&this.multimeterService.Mdata.multimeterScreenUnit==="Ω")'
+        class="T6-Pin-1 hot" title="T1" id="7" wybredPosition="T1" wybblackPosition="T1" rqPosition="2013" h-left="532" h-top="426"></a>
+      <a *ngIf='(skillService.T_Pin_Install==="0"&&this.multimeterService.Mdata.multimeterScreenUnit==="V")||(skillService.V_Pin_Install==="0"&&skillService.T_Pin_Install==="0"&&this.multimeterService.Mdata.multimeterScreenUnit==="Ω")'
+        class="T6-Pin-2 hot" title="T2" id="8" wybredPosition="T2" wybblackPosition="T2" rqPosition="2013" h-left="746" h-top="426"></a>
+      <a *ngIf='(skillService.T_Pin_Install==="0"&&this.multimeterService.Mdata.multimeterScreenUnit==="Ω")' class="T6-Pin-3 hot"
+        title="T3" id="9" wybredPosition="T3" wybblackPosition="T3" rqPosition="2013" h-left="532" h-top="456"></a>
+      <a *ngIf='(skillService.T_Pin_Install==="0"&&this.multimeterService.Mdata.multimeterScreenUnit==="Ω")' class="T6-Pin-4 hot"
+        title="T4" id="10  " wybredPosition="T4" wybblackPosition="T4" rqPosition="2013" h-left="746" h-top="456"></a>
+    </div>
+  </div>
+  <!-- 左侧点击箭头出现的内容 -->
+  <div *ngIf='true ' [@flyIn]="sceneLeftNavAnimation" class="scene-left-nav">
+    <!-- <span (click)='closeSceneLeftNav() ' class="close-scene-left-nav">
+      x
+    </span> -->
+    <ul>
+      <li [ngClass]="{'clickShow ':this.appService.progressData.describeFlag===29}" (click)="pageShow(29)">
+        <span>知识</span>
+      </li>
+      <li [ngClass]="{'clickShow ':this.appService.progressData.describeFlag>29}" (click)="pageShow(30)">
+        <span>技能</span>
+      </li>
+    </ul>
+  </div>
+</div>

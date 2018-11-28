@@ -1,0 +1,147 @@
+<div class='knowledge-body'>
+    <!-- 功能 -->
+    <div class='gaishu' *ngIf='4===this.appService.progressData.describeFlag'>
+        <p style="margin-left: 60px;">检测电机的绕组温度。</p>
+        <img src="assets/images/knowledge/img4.png" alt="" srcset="" style='width: 66%;margin: 7% 0 0 25%;'>
+    </div>
+    <!-- 分类 -->
+    <div class='ycybdjjg' *ngIf='5===this.appService.progressData.describeFlag'>
+        <p style="margin-left: 60px;">根据温度特性的不同分为：</p>
+        <ul>
+            <li>PTC正温度系数热敏电阻</li>
+            <li>NTC负温度系数热敏电阻</li>
+        </ul>
+        <img src="assets/images/knowledge/img5.png" alt="" srcset="" style='width: 66%;margin: 3% 0 0 23%;'>
+    </div>
+    <!-- 结构 -->
+    <!-- <div class='ycybdjyl' *ngIf='6===this.appService.progressData.describeFlag'>
+        <p class="ycybdjyl-p1">温度传感器特性原理</p>
+        <img src="./assets/images//knowledge/img6.png" alt="" srcset="" style='margin:0 auto;' class="ycybdjyl-img1">
+        <img src="./assets/images//knowledge/img1.png" alt="" srcset="" class="ycybdjyl-img2" (click)="pageShow(7) ">
+        <text-introduction [data]='jgonetxt1'></text-introduction>
+    </div> -->
+    <div class='ycybdjyl' style='width: 100%' *ngIf='6===this.appService.progressData.describeFlag'>
+        <!-- <p class="ycybdjyl-p1">温度传感器特性原理</p> -->
+        <!-- <img src="./assets/images//knowledge/img6.png" alt="" srcset="" style='margin:0 auto;' class="ycybdjyl-img1"> -->
+        <temperature></temperature>
+        <!-- <img src="./assets/images//knowledge/img1.png" alt="" srcset="" class="ycybdjyl-img2" (click)="pageShow(7) "> -->
+
+    </div>
+    <!-- <div class="ycybdjyl" *ngIf='7===this.appService.progressData.describeFlag'>
+        <p class="ycybdjyl-p1">温度传感器所产生的电压信号</p>
+        <img src="./assets/images//knowledge/img7.png" alt="" srcset=""  style='margin:0 auto;' class="ycybdjyl-img1">
+        <img src="./assets/images//knowledge/img3.png" alt="" srcset="" class="ycybdjyl-img4" (click)="pageShow(6) ">
+        <text-introduction [data]='jgonetxt2'></text-introduction>
+    </div> -->
+
+    <!-- 诊断 -->
+    <div class="diagnose" *ngIf='7===this.appService.progressData.describeFlag'>
+        <div class="diagnose-div1">
+            <img src="./assets/images/knowledge/aa0.png" class="diagnose-img1" (click)="pageShow(8) ">
+        </div>
+    </div>
+    <div class="diagnose" *ngIf='8===this.appService.progressData.describeFlag'>
+        <div class="diagnose-div1">
+            <img src="./assets/images/knowledge/aa1.png" class="diagnose-img1">
+            <img src="./assets/images/knowledge/aa2.png" class="diagnose-img2">
+            <img src="./assets/images/knowledge/aa3.png" class="diagnose-img1" (click)="pageShow(9) ">
+        </div>
+        <div class="diagnose-div2">
+            <ul class="diagnose-ul1">
+                <li style="background: #4472C4;text-align: center;">故障原因</li>
+                <li>传感器电路虚接、短路或断路</li>
+                <li>传感器自身故障</li>
+                <li>驱动电机控制器自身故障</li>
+            </ul>
+        </div>
+    </div>
+    <div class="diagnose" *ngIf='9===this.appService.progressData.describeFlag'>
+        <div class="diagnose-div1">
+            <img src="./assets/images/knowledge/aa1.png" class="diagnose-img1">
+            <img src="./assets/images/knowledge/aa2.png" class="diagnose-img2">
+            <img src="./assets/images/knowledge/aa4.png" class="diagnose-img1">
+            <img src="./assets/images/knowledge/aa2.png" class="diagnose-img2">
+            <img src="./assets/images/knowledge/aa5.png" class="diagnose-img1" (click)="pageShow(10) ">
+        </div>
+        <div class="diagnose-div2">
+            <ul class="diagnose-ul1">
+                <li style="background: #4472C4;text-align: center;">故障原因</li>
+                <li>传感器电路虚接、短路或断路</li>
+                <li>传感器自身故障</li>
+                <li>驱动电机控制器自身故障</li>
+            </ul>
+            <ul class="diagnose-ul1">
+                <li style="background: #4472C4;text-align: center;">检查方法</li>
+                <li>万用表测量电路</li>
+                <li>测量电源及信号电压</li>
+                <li>测量电源和信号电压</li>
+            </ul>
+        </div>
+    </div>
+    <div class="diagnose" *ngIf='10===this.appService.progressData.describeFlag'>
+        <div class="diagnose-div1">
+            <img src="./assets/images/knowledge/aa1.png" class="diagnose-img1">
+            <img src="./assets/images/knowledge/aa2.png" class="diagnose-img2">
+            <img src="./assets/images/knowledge/aa4.png" class="diagnose-img1">
+            <img src="./assets/images/knowledge/aa2.png" class="diagnose-img2">
+            <img src="./assets/images/knowledge/aa6.png" class="diagnose-img1">
+        </div>
+        <div class="diagnose-div2">
+            <ul class="diagnose-ul1">
+                <li style="background: #4472C4;text-align: center;">故障原因</li>
+                <li>传感器电路虚接、短路或断路</li>
+                <li>传感器自身故障</li>
+                <li>驱动电机控制器自身故障</li>
+            </ul>
+            <ul class="diagnose-ul1">
+                <li style="background: #4472C4;text-align: center;">检查方法</li>
+                <li>万用表测量电路</li>
+                <li>测量电源及信号电压</li>
+                <li>测量电源和信号电压</li>
+            </ul>
+            <ul class="diagnose-ul1">
+                <li style="background: #4472C4;text-align: center;">标准数值</li>
+                <li>参考维修手册</li>
+                <li>1#电压：2.0-4.9V；
+                    <br /> 2#电压：0-0.2V
+                </li>
+                <li>电源电压：12.5V左右；
+                    <br /> 信号电压同上
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ycybdjyl" *ngIf='11===this.appService.progressData.describeFlag'>
+        <!--	<img src="./assets/images/knowledge/img8.png" style="margin: auto;width: 85%;height: 70%;margin-top: 20px;">
+				<img src="./assets/images/knowledge/img9.png" style="margin: auto;width: 85%;">
+                <img src="./assets/images/knowledge/img12.png" style="position: absolute;left: 30%;top: 10%;"> -->
+        <p class="ycybdjyl-p1">更换电机温度传感器</p>
+        <p class="ycybdjyl-p2">传感器集成在电机总成内，需更换总成。</p>
+
+        <div style='width:100%;height:480px;' id='video_warp'>
+            <video src="./assets/video/qudong.mp4" style='margin: 0 auto;height: 100%;display: block;' controls id="synAnimation1"></video>
+        </div>
+    </div>
+    <!-- 左侧点击箭头出现的内容 -->
+    <div *ngIf='true' [@flyIn]="sceneLeftNavAnimation " class="scene-left-nav ">
+        <ul>
+            <li [ngClass]="{ 'clickShow':this.appService.progressData.describeFlag===4} " (click)="pageShow(4) ">
+                <span>功能</span>
+            </li>
+            <li [ngClass]="{ 'clickShow':this.appService.progressData.describeFlag===5} " (click)="pageShow(5) ">
+                <span>分类</span>
+            </li>
+
+            <li [ngClass]="{ 'clickShow':this.appService.progressData.describeFlag===6} " (click)="pageShow(6) ">
+                <span>原理</span>
+            </li>
+            <li [ngClass]="{ 'clickShow':this.appService.progressData.describeFlag>=7&&this.appService.progressData.describeFlag
+			<=10} " (click)="pageShow(7) ">
+                <span>诊断</span>
+            </li>
+            <li [ngClass]="{ 'clickShow':this.appService.progressData.describeFlag>=11} " (click)="pageShow(11) ">
+                <span>维修</span>
+            </li>
+        </ul>
+    </div>
+</div>

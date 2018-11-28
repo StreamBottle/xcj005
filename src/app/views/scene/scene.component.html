@@ -1,0 +1,99 @@
+<div class="sceneBody">
+    <div *ngIf="this.appService.progressData.describeFlag===1" class="describe">
+        <table border="1" class="tab">
+            <caption>维修工单</caption>
+            <tr>
+                <th>进厂日期</th>
+                <td>2018.6.18</td>
+                <th>维修顾问</th>
+                <td>赵耀光</td>
+                <th>车型</th>
+                <td>北汽 EV160</td>
+            </tr>
+            <tr>
+                <th>进厂时间</th>
+                <td>9：10</td>
+                <th>托修人</th>
+                <td>韩天举</td>
+                <th>行驶里程</th>
+                <td>44352km</td>
+            </tr>
+            <tr>
+                <th>出厂时间</th>
+                <td>13：15</td>
+                <th>VIN</th>
+                <td colspan="3">XXXSCB3F5BD003425</td>
+            </tr>
+            <tr style="height: .5rem">
+                <th>客户描述</th>
+                <td colspan="5" style="text-align: left;padding: 0 .1rem">
+                    <p>仪表中有故障灯点亮</p>
+                </td>
+            </tr>
+            <tr style="height: .5rem">
+                <th>维修任务</th>
+                <td colspan="5" style="text-align: left;padding: 0 .1rem">维修电机故障灯点亮故障</td>
+            </tr>
+        </table>
+    </div>
+    <!-- 故障 -->
+    <div *ngIf="this.appService.progressData.describeFlag===2" class="fault">
+        <img src="./assets/images/skill/bg.png" />
+    </div>
+    <!-- 课程 -->
+    <!-- <div *ngIf="this.appService.progressData.describeFlag===3" class="curriculum">
+        <ul>
+        	<li>◆ 能够解释热敏电阻的原理，特性</li>
+        	<li>◆ 能够对电机温度传感器有关的故障进行诊断</li>
+        	<li>◆ 能够规范执行驱动电机总成的拆装</li>
+        </ul>
+    </div> -->
+    <div class="renwu" *ngIf="this.appService.progressData.describeFlag===3">
+        <img src="./assets/images/skill/mubiao.png" alt="">
+        <div class="renwu1Div">
+            <h2>通过本任务的学习，学生应能达到以下任务目标：</h2>
+            <ul>
+                <li>
+                    <i></i>
+                    <span>能够解释热敏电阻的原理，特性</span>
+                </li>
+                <li>
+                    <i></i>
+                    <span>能够对电机温度传感器有关的故障进行诊断</span>
+                </li>
+                <li>
+                    <i></i>
+                    <span>能够规范执行驱动电机总成的拆装</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 左侧点击箭头 -->
+    <!-- <div (click)='sceneLeftNavShow()' class="arrowL">
+    <div>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div> -->
+    <!-- 左侧点击箭头出现的内容 -->
+    <div *ngIf='true' [@flyIn]="sceneLeftNavAnimation" class="scene-left-nav">
+        <!-- <span (click)='closeSceneLeftNav()' class="close-scene-left-nav">
+      x
+    </span> -->
+        <ul>
+            <li (click)="pageShow(1)">
+                <span [ngClass]="{'clickShow':this.appService.progressData.describeFlag===1}">维修工单</span>
+            </li>
+            <li (click)="pageShow(2)">
+                <span [ngClass]="{'clickShow':this.appService.progressData.describeFlag===2}">故障验证</span>
+            </li>
+            <li (click)="pageShow(3)">
+                <span [ngClass]="{'clickShow':this.appService.progressData.describeFlag===3}">课程目标</span>
+            </li>
+        </ul>
+    </div>
+
+</div>

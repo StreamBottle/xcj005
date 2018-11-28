@@ -1,0 +1,59 @@
+<div class="principle">
+    <div *ngIf='this.knowledgePage===1' class="principle-1">
+        <span class="ycybdjyl-p1">温度传感器特性原理</span>
+        <img src="./assets/images/knowledge/principle-1.png" alt="">
+        <img src="./assets/images/knowledge/operation-15.png" alt="">
+        <img src="./assets/images/knowledge/operation-27.png" alt="">
+        <img src="./assets/images/knowledge/operation-28.png" alt="">
+        <img src="./assets/images/knowledge/operation-29.png" alt="">
+        <img src="./assets/images/knowledge/operation-17.png" alt="">
+        <img src="./assets/images/knowledge/operation-19.png" alt="">
+        <img src="./assets/images/knowledge/principle-6.png" alt="">
+        <img src="./assets/images/knowledge/principle-7.png" alt="">
+        <img src="./assets/images/knowledge/principle-4.png" alt="">
+        <img class="isShow" src="./assets/images/knowledge/principle-2.png" alt="">
+        <img src="./assets/images/knowledge/principle-3.png" alt="">
+        <span *ngIf='this.spanClick1' id="line"></span>
+        <span *ngIf='this.spanClick2' id="line1"></span>
+        <span *ngIf='this.spanClick1' class="span1">{{this.resistanceValue1}}</span>
+        <span *ngIf='this.spanClick2' class="span2">{{this.resistanceValue2}}</span>
+        <span *ngIf='this.spanClick1' class="span3">Ω</span>
+        <span *ngIf='this.spanClick2' class="span4">Ω</span>
+        <span class="spanClick1 hight1 span5" [halo]="this.obj1.halo1" (click)='ptcORntc("spanClick1","halo1")'>PTC正温度系数热敏电阻</span>
+        <span class="spanClick2 hight1 span6" [halo]="this.obj1.halo2" (click)='ptcORntc("spanClick2","halo2")'>NTC负温度系数热敏电阻</span>
+        <span class="spanClick3 hight span7" [halo]="this.obj2.halo3" (click)='alcoholLamp("spanClick3","halo3")'>点燃酒精灯</span>
+        <span class="spanClick4 hight span8" [halo]="this.obj2.halo4" (click)='alcoholLamp("spanClick4","halo4")'>熄灭酒精灯</span>
+        <span class="cover"></span>
+        <text-introduction [data]='jgonetxt1'></text-introduction>
+    </div>
+    <div *ngIf='this.knowledgePage===2' class="principle-2">
+        <span class="ycybdjyl-p1">温度传感器所产生的电压信号</span>
+        <!-- <span>冷却液温度传感器工作原理</span> -->
+        <img src="./assets/images/knowledge/principle-5.png" alt="">
+        <img src="./assets/images/knowledge/principle-4.png" alt="">
+        <img src="./assets/images/knowledge/operation-15.png" alt="">
+        <img src="./assets/images/knowledge/operation-27.png" alt="">
+        <img src="./assets/images/knowledge/operation-28.png" alt="">
+        <img src="./assets/images/knowledge/operation-29.png" alt="">
+        <img src="./assets/images/knowledge/operation-17.png" alt="">
+        <img src="./assets/images/knowledge/operation-19.png" alt="">
+        <img src="./assets/images/knowledge/principle-9.png" alt="">
+        <img src="./assets/images/knowledge/principle-8.png" alt="">
+        <span id="line2"></span>
+        <span>{{this.elegantValue}}</span>
+        <span>V</span>
+        <span class="up hight" [halo]="this.obj3.halo5" (click)='temperature("up","halo5")'>升温</span>
+        <span class="down hight" [halo]="this.obj3.halo6" (click)='temperature("down","halo6")'>降温</span>
+        <span class="cover"></span>
+        <text-introduction [data]='jgonetxt2'></text-introduction>
+    </div>
+    <!--翻页-->
+    <div class="principle-flip">
+        <!-- <span class="leftArrow" (click)='flipUp("principle")'></span> -->
+        <!-- <span class="prev" (click)='flipUp("principle")'>上一页</span>
+        <span class="next" (click)='flipDown("principle")'>下一页</span> -->
+        <span class="prev-flip" (click)='flipUp("principle")'>温度传感器特性原理</span>
+        <span class="next-flip" (click)='flipDown("principle")'>温度传感器所产生的电压信号</span>
+        <!-- <span class="rightArrow" (click)='flipDown("principle")'></span> -->
+    </div>
+</div>
